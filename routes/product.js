@@ -5,12 +5,12 @@ import { db } from "../db.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-	const querySnapshot = await getDocs(collection(db, "products"));
+	const querySnapshot = await getDocs(collection(db, "shoes"));
     const products = []
 	querySnapshot.forEach((doc) => {
         products.push(doc.data())
     })
-    res.send(products)
+    res.json(products);
 });
 
 export { router as productRoute };
