@@ -8,7 +8,7 @@ export const buyItem = async (req, res, next) => {
         const docSnap = await getDoc(findAcc)
         if (!docSnap.exists()) {
             const accountRef = doc(db, "users", data.username)
-            await setDoc(accountRef, { capital: true }, { merge: true });
+            await setDoc(accountRef, { merge: true }, {cart: data.shoes});
 		    console.log("Data berhasil dimasukkan");
         } else {
             res.status(400).json({

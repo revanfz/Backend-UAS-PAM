@@ -8,15 +8,19 @@ export const addAccount = async (req, res, next) => {
         const docSnap = await getDoc(findAcc)
         if (!docSnap.exists()) {
             const accountRef = doc(db, "users", data.username)
-            await setDoc(accountRef, { capital: true }, { merge: true });
+            await setDoc(accountRef, { merge: true }, { password: data.password, email: data.email, username: data.username });
 		    console.log("Data berhasil dimasukkan");
         } else {
-            res.status(400).json({
+            res.status(400)
+            .contentType('application/json')
+            .json({
                 msg: "Username Already Registered"
             })
             throw new Error('Username already registered')
         }
-		res.status(200).json({
+		res.status(200)
+        .contentType('application/json')
+        .json({
             msg: "Pendaftaran User Behasil"
         });
 	} catch (err) {

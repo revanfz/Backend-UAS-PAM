@@ -1,6 +1,5 @@
 import express from "express"
-import { addAccount } from "../controllers/accountController.js";
-
+import { addAccount } from "../controllers/registerController.js";
 const router = express.Router()
 
 router.get("/", (req, res) => {
