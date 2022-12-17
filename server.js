@@ -4,14 +4,16 @@ import bodyParser from "body-parser";
 import { PORT, HOST } from "./config.js";
 import { registerRoute } from "./routes/register.js";
 import { productRoute } from "./routes/product.js";
+import { purchaseRoute } from "./routes/purchase.js";
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use("/product", productRoute);
+app.use("/api/product", productRoute);
 app.use("/api/register", registerRoute);
+app.use("/api/purchase", purchaseRoute);
 
 app.get("/", (req, res) => {
 	res.status(200).json({

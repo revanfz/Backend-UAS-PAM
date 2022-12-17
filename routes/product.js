@@ -8,9 +8,9 @@ router.get("/", async (req, res) => {
 	const querySnapshot = await getDocs(collection(db, "shoes"));
     const products = []
 	querySnapshot.forEach((doc) => {
-        products.push(doc.data())
+        products.push(doc.data().value)
     })
-    res.json(products);
+    res.status(200).json(products);
 });
 
 export { router as productRoute };
