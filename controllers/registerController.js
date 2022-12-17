@@ -8,7 +8,7 @@ export const addAccount = async (req, res, next) => {
         const docSnap = await getDoc(findAcc)
         if (!docSnap.exists()) {
             const accountRef = doc(db, "users", data.username)
-            await setDoc(accountRef, { merge: true }, { password: data.password, email: data.email, username: data.username });
+            await setDoc(accountRef, { password: data.password, email: data.email, username: data.username });
 		    console.log("Data berhasil dimasukkan");
         } else {
             res.status(400)
