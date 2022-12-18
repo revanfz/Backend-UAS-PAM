@@ -8,6 +8,7 @@ import { purchaseRoute } from "./routes/purchase.js";
 import { loginRoute } from "./routes/login.js";
 import { profileRoute } from "./routes/profile.js";
 import { cartRoute } from "./routes/cart.js";
+import { wishlistRoute } from "./routes/wishlist.js";
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use("/api/purchase", purchaseRoute);
 app.use("/api/login", loginRoute);
 app.use("/api/user", profileRoute);
 app.use("/api/cart", cartRoute);
+app.use("/api/wishlist", wishlistRoute);
 
 app.get("/api", (req, res) => {
 	res.status(200)
